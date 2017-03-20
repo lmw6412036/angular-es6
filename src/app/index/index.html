@@ -1,0 +1,33 @@
+<div class="page_index pagebox">
+    <div class="flex">
+        <div class="banner swiper-container">
+            <div class="swiper-wrapper">
+                <div ng-repeat="d in vm.adSettingList" class="swiper-slide">
+                    <img ng-src="{{d.adImg}}" alt="">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="nav">
+            <ul ng-style="vm.style">
+                <li ng-style="d.style" class="{{d.class}}" ng-repeat="d in vm.nav"></li>
+            </ul>
+        </div>
+        <div class="hot">
+            <h3>--为您推荐--</h3>
+            <ul class="oh">
+                <li ng-style="vm.li" class="fl" ng-repeat="d in vm.shopProductList">
+                    <div class="ava" ng-style="vm.ava" style="background-image: url({{d.productListmg}})"></div>
+                    <p>
+                        <b>￥{{d.price}}</b>
+                        <s>￥{{d.costPrice}}</s>
+                    </p>
+                    <h4 class="shengluehao">
+                        {{d.productName}}
+                    </h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer noflex" ng-include="'app/public/footer.html'"></div>
+</div>

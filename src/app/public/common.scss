@@ -1,0 +1,146 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 255068 */
+  src: url('//at.alicdn.com/t/font_0fmg3u1dvhpbke29.eot');
+  src: url('//at.alicdn.com/t/font_0fmg3u1dvhpbke29.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_0fmg3u1dvhpbke29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_0fmg3u1dvhpbke29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_0fmg3u1dvhpbke29.svg#iconfont') format('svg');
+}
+
+$colors: (
+        main:rgb(40,178,142),
+        border:#dce6e5,
+        bg:#f5f5f5
+);
+
+@mixin h_lh($h) {
+  height: $h;
+  line-height: $h;
+}
+
+@mixin border($b:left,$a:after,$c:map_get($colors,border)){
+  &::#{$a}{
+    content: '';
+    display: block;
+    position: absolute;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background-color: $c;
+    @if($b==left){
+      top:0px;
+      left:0px;
+      height: 100%;
+      width: 1px;
+      -webkit-transform:scaleX(0.5);
+      transform:scaleX(0.5);
+    }
+    @if($b==right){
+      top:0px;
+      right:0px;
+      height:100%;
+      width: 1px;
+      -webkit-transform:scaleX(0.5);
+      transform:scaleX(0.5);
+    }
+    @if($b==top){
+      top:0px;
+      left:0px;
+      height: 1px;
+      width: 100%;
+      -webkit-transform:scaleY(0.5);
+      transform:scaleY(0.5);
+    }
+    @if($b==bottom){
+      bottom:0px;
+      left:0px;
+      height: 1px;
+      width: 100%;
+      -webkit-transform:scaleY(0.5);
+      transform:scaleY(0.5);
+    }
+  }
+}
+
+@mixin box($flex:true){
+  display: -webkit-box;
+  @if($flex==true){
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+@mixin flex($flex:1){
+  -webkit-box-flex: $flex;
+  -webkit-flex: $flex;
+  flex: $flex;
+}
+@mixin thumb($w:40px){
+  width: $w;
+  height:$w;
+  overflow: hidden;
+  img{
+    width: $w;
+    height:$w;
+    border-radius: $w/2;
+  }
+}
+@mixin bgimg($path,$x:center,$y:center){
+  background-repeat: no-repeat;
+  background-position: $x $y;
+  background-image: url($path);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.font{
+  font-family: 'iconfont';
+}
+
+
+p{
+  font-size: 0.7rem;
+}
+
+li{
+  list-style: none;
+}
+
+.oh{
+  overflow: hidden;
+}
+.fl{
+  float: left;
+}
+
+.shengluehao {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pagebox{
+  @include box();
+  overflow: hidden;
+  position: fixed;
+  background-color: map_get($colors,bg);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-box-orient:vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  >.flex{
+    overflow-y: auto;
+    @include flex();
+  }
+  >.noflex{
+    -webkit-flex-grow: 0;
+    -webkit-flex-shrink: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}

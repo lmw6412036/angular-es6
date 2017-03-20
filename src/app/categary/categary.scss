@@ -1,0 +1,16 @@
+.page_categary{
+  ul.list{
+    padding: .75rem 0;
+
+    li{
+      margin: 0 .75rem;
+      background-color: white;
+      border-radius: .25rem;
+      padding: .5rem 0;
+      text-align: center;
+    }
+    li+li{
+      margin-top: .75rem;
+    }
+  }
+}
