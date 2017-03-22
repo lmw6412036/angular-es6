@@ -3,12 +3,13 @@
  */
 class indexCtrl{
     /*@ngInject*/
-    constructor($rootScope,$scope,api,$timeout){
+    constructor($rootScope,$scope,api,$timeout,apiurl){
         $rootScope.currentFooter="home";
         this.$rootScope=$rootScope;
         this.api=api;
         this.$scope=$scope;
         this.$timeout=$timeout;
+        this.apiurl=apiurl;
         this.name="这里是首页";
         let wh=this.initWandH();
         this.style={
@@ -66,12 +67,13 @@ class indexCtrl{
         this.getData();
     }
     getData(){
-        this.api.request('/ad/lists',{}).then(data=>{
+        this.api.request('/ad/lists',{type:64}).then(data=>{
             console.log('二次data',data);
             if(data.code==0){
-                this.adSettingList=data.adSettingList;
-                this.shopItemList=data.shopItemList;
-                this.shopProductList=data.shopProductList;
+                this.adSettingList=data.data.map((item,index)=> {
+                    item.adImg=this.apiurl+item.thumb_url;
+                    return item;
+                });
                 this.$timeout(function () {
                     var mySwiper = new Swiper('.swiper-container', {
                         autoplay: 5000,//可选选项，自动滑动

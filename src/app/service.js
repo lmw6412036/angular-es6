@@ -24,10 +24,10 @@ register('yiyao').factory('httpFilter',httpFilter);
 
 class api{
     /*@ngInject*/
-    constructor($http,config){
+    constructor($http,config,apiurl){
         this.$http=$http;
         this.config=config;
-        this.url='//114.215.146.233:83/api';
+        this.url=apiurl+'api';
     }
     request(restful,options){
         let config=this.config;

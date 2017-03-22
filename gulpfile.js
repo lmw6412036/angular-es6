@@ -53,7 +53,7 @@ gulp.task("sass",function () {
 });
 
 
-gulp.task("inject",['init'],function () {
+gulp.task("inject",function () {
     var target=gulp.src('./src/index.html');
     var css=gulp.src('css/style.css',{cwd:'./build'});
     var js=gulp.src([
@@ -75,7 +75,7 @@ gulp.task("inject",['init'],function () {
 
 gulp.task("init",['html','images','scripts','sass']);
 
-gulp.task("serve",['inject'],function () {
+gulp.task("serve",function () {
     browserSync.init({
         server: "./build"
     });
@@ -106,13 +106,19 @@ gulp.task("serve",['inject'],function () {
 
     gulp.watch([
         dev+'index.html',
-        dest+'*.*',
-        dest+'**/*.*'
+        dest+'*.js',
+        dest+'**/*.js',
+        dest+'*.css',
+        dest+'**/*.css'
     ],['inject']);
 
     gulp.watch([
-        dest+'*.*',
-        dest+'**/*.*'
+        dest+'*.js',
+        dest+'**/*.js',
+        dest+'*.css',
+        dest+'**/*.css',
+        dest+'*.html',
+        dest+'**/*.html'
     ]).on('change',reload);
 
 });

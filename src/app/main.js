@@ -14,6 +14,8 @@ app.constant('config',{
     "oper":"127.0.0.1"
 });
 
+app.constant('apiurl','//114.215.146.233:83/');
+
 app.constant('footer',[
     {name:"home",value:"首页"},
     {name:"categary",value:"分类"},
