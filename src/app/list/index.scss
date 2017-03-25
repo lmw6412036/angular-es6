@@ -1,0 +1,57 @@
+.page_list{
+  .nav{
+    @include h_lh(2.25rem);
+    background-color: white;
+    position: relative;
+    @include border(bottom,before);
+    @include border();
+    &::after{
+      left: 50%;
+    }
+
+    ul{
+      @include box();
+      li{
+        @include bgimg('../images/bg_1.png',right);
+        background-size: .5rem;
+        margin: 0 .75rem;
+        width: 50%;
+        select{
+          background-color: transparent;
+          font-size: .8rem;
+          width: 6rem;
+        }
+      }
+    }
+  }
+  .list{padding: .5rem 0;
+    li+li{
+      margin-top: .5rem;
+    }
+    li{
+      background-color: white;
+      @include box();
+      padding: .75rem;
+      .ava{
+        @include thumb(3rem);
+      }
+      .info{
+        width: 11.5rem;
+        padding-left: .75rem;
+        h3{
+          font-size: .8rem;
+        }
+        div,p{
+          padding-top: .25rem;
+        }
+        div{
+          font-size: .7rem;
+        }
+        p{
+          color: map_get($colors,gray);
+          font-size: .6rem;
+        }
+      }
+    }
+  }
+}

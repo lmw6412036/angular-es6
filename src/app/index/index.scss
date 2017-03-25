@@ -10,17 +10,11 @@
     }
   }
   .nav{
-    margin: .5rem .5rem 0;
+    margin: .75rem .75rem 0;
     position: relative;
     li{
       background-color: white;
       position: absolute;
-      @each $i in qsncz,lnbj,jkbk,nxjk,nxby{
-        &.#{$i}{
-          @include bgimg('../images/index/#{$i}.png');
-          background-size: contain;
-        }
-      }
     }
   }
   .hot{

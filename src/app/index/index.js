@@ -3,7 +3,7 @@
  */
 class indexCtrl{
     /*@ngInject*/
-    constructor($rootScope,$scope,api,$timeout,apiurl){
+    constructor($rootScope,$scope,api,$timeout,apiurl,$location){
         $rootScope.currentFooter="home";
         this.$rootScope=$rootScope;
         this.api=api;
@@ -11,55 +11,49 @@ class indexCtrl{
         this.$timeout=$timeout;
         this.apiurl=apiurl;
         this.name="这里是首页";
-        let wh=this.initWandH();
+        this.$location=$location;
+
         this.style={
-            height:wh.h1+"px"
+            height:"10.8125rem"
         };
-        this.li={
-            width:wh.w2
-        };
-        this.ava={
-            width:wh.w2-20,
-            height:wh.w2-20
-        }
         this.nav=[
-            {name:'青少年成长',class:'qsncz',url:""},
-            {name:'老年保健',class:'lnbj',url:""},
-            {name:'健康百科',class:'jkbk',url:""},
-            {name:'女性健康',class:'nxjk',url:""},
-            {name:'男性保养',class:'nxby',url:""}
+            {name:'小儿推拿',class:'tn',img:'01',url:"54"},
+            {name:'艺术培训',class:'px',img:"02",url:"55"},
+            {name:'儿童摄影',class:'sy',img:"03",url:"56"},
+            {name:'调律师',class:'tl',img:"04",url:"57"}
         ].map((item)=>{
-            if(item.class=="jkbk"){
-                item.style={
-                    width:wh.w+"px",
-                    height:wh.h1+"px"
-                };
-            }else{
-                item.style={
-                    width:wh.w+"px",
-                    height:wh.h2+"px"
-                };
-            }
             switch (item.class){
-                case "qsncz":
-                    item.style.left=0;
-                    item.style.top=0;
+                case "tn":
+                    item.style={
+                        width:"7.125rem",
+                        height:"7.125rem",
+                        left:0,
+                        top:0
+                    };
                     break;
-                case "lnbj":
-                    item.style.left=(wh.w+5)+"px";
-                    item.style.top=0;
+                case "px":
+                    item.style={
+                        width:"7.125rem",
+                        height:"3.4375rem",
+                        left:"7.375rem",
+                        top:0
+                    };
                     break;
-                case "jkbk":
-                    item.style.right=0;
-                    item.style.top=0;
+                case "sy":
+                    item.style={
+                        width:"7.125rem",
+                        height:"3.4375rem",
+                        left:"7.375rem",
+                        top:'3.6875rem'
+                    };
                     break;
-                case "nxjk":
-                    item.style.left=0;
-                    item.style.top=(wh.h2+5)+"px";
-                    break;
-                case "nxby":
-                    item.style.left=(wh.w+5)+"px";
-                    item.style.top=(wh.h2+5)+"px"
+                case "tl":
+                    item.style={
+                        width:"14.5rem",
+                        height:"3.4375rem",
+                        left:"0",
+                        top:"7.375rem"
+                    };
                     break;
             }
             return item;
@@ -83,14 +77,10 @@ class indexCtrl{
             }
         });
     }
-    initWandH(){
-        let www=$(window).width();
-        let w=(www-30)/3;
-        let h1=29/21*w;
-        let h2=(h1-5)/2;
-        let w2=(www-30)/2;
-        return {w,h1,h2,w2};
+    goto(fid){
+        this.$location.url('/list?fid='+fid);
     }
+
 }
 
 register('yiyao').controller('index/index',indexCtrl);

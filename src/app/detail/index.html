@@ -1,0 +1,26 @@
+<div class="page_detail pagebox">
+    <header>
+        <span>{{vm.data.name}}</span>
+        <div class="back"><</div>
+    </header>
+    <div class="flex">
+        <div class="info">
+            <div class="ava ">
+                <img ng-src="{{vm.data.thumb_url}}" alt="">
+            </div>
+            <div class="desc">
+                <h3>{{vm.data.name}}</h3>
+                <div>{{vm.data.area}} {{vm.data.szctype}}</div>
+                <div>服务价格：{{vm.data.price}}</div>
+                <p class="shengluehao">{{vm.data.des}}</p>
+            </div>
+        </div>
+        <div class="content">
+            <h3>个人简介</h3>
+            <div>{{vm.data.des}}</div>
+        </div>
+    </div>
+    <footer>
+        <p>联系我:<a href="tel:{{vm.data.phone}}">{{vm.data.phone|limitTo:7}}***</a></p>
+    </footer>
+</div>

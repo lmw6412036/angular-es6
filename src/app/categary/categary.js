@@ -6,25 +6,26 @@
  */
 class categaryCtrl{
     /*@ngInject*/
-    constructor($rootScope,$scope,api,$timeout,$routeParams){
+    constructor($rootScope,$scope,api,$timeout,$routeParams,$location){
         $rootScope.currentFooter="categary";
         this.$rootScope=$rootScope;
+        this.$location=$location;
         this.api=api;
         this.$routeParams=$routeParams;
         this.getData();
     }
     getData(){
-        if(this.$routeParams&&this.$routeParams.shopId){
-            let shopId=this.$routeParams.shopId;
-        }else{
-            let shopId=1;
-        }
-        this.api.request("yidao.shop.item.list",{shopId})
+        let fid=53;
+        this.api.request("/coclass/getByFid",{fid})
             .then(data=>{
                 if(data.code==0){
-                    this.list=data.list;
+                    this.list=data.data;
+                    console.log(this.list);
                 }
             })
+    }
+    goto(fid){
+        this.$location.url('/list?fid='+fid);
     }
 }
 

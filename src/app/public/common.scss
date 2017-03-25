@@ -10,7 +10,8 @@
 $colors: (
         main:rgb(40,178,142),
         border:#dce6e5,
-        bg:#f5f5f5
+        bg:#f5f5f5,
+        gray:#999
 );
 
 @mixin h_lh($h) {
@@ -57,6 +58,8 @@ $colors: (
       width: 100%;
       -webkit-transform:scaleY(0.5);
       transform:scaleY(0.5);
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
     }
   }
 }
@@ -89,23 +92,68 @@ $colors: (
   background-image: url($path);
 }
 
+@mixin noflex(){
+  -webkit-flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
 *{
   padding: 0;
   margin: 0;
+  color: #333;
   box-sizing: border-box;
+}
+
+@each $i in 1,2,3,4,5,6{
+  h#{$i}{
+    font-weight: normal;
+    font-size: 0.5rem + (0.1rem)*$i;
+  }
 }
 
 .font{
   font-family: 'iconfont';
 }
 
+a{
+  text-decoration: none;
+}
+
+div{
+  font-size: .7rem;
+}
 
 p{
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 li{
   list-style: none;
+}
+
+header{
+  @include h_lh(2.25rem);
+  position: relative;
+  background-color: white;
+  text-align: center;
+  @include border(bottom);
+  span{
+    font-size: .8rem;
+  }
+  .back{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2.25rem;
+    width: 2.25rem;
+    text-align: center;
+  }
+}
+
+footer{
+  height: 2rem;
 }
 
 .oh{
@@ -120,6 +168,7 @@ li{
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 
 .pagebox{
   @include box();
@@ -136,6 +185,7 @@ li{
   >.flex{
     overflow-y: auto;
     @include flex();
+    -webkit-overflow-scrolling:touch;
   }
   >.noflex{
     -webkit-flex-grow: 0;

@@ -1,0 +1,54 @@
+.page_detail{
+  .info{
+    padding: .75rem;
+    @include box();
+    background-color: white;
+    .ava{
+      @include thumb(4rem);
+    }
+    .desc{
+      width: 10.5rem;
+      padding-left: .75rem;
+      div,p{
+        padding-top: .3rem;
+      }
+      div{
+
+      }
+      p{
+        color: map_get($colors,gray);
+      }
+    }
+  }
+  .content{
+    margin-top: .5rem;
+    background-color: white;
+    h3{
+      padding-left: .75rem;
+      @include h_lh(1.75rem);
+      position: relative;
+      @include border(bottom);
+    }
+    >div{
+      padding: .5rem .75rem;
+      line-height: 1.5;
+      color: map_get($colors,gray);
+    }
+  }
+
+  footer{
+    padding-bottom: .5rem;
+    text-align: center;
+    p{
+      @include h_lh(1.5rem);
+      border-radius: .25rem;
+      width: 8rem;
+      display: inline-block;
+      color: white;
+      background-color: map_get($colors,main);
+      a{
+        color: white;
+      }
+    }
+  }
+}

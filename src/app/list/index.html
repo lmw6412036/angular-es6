@@ -1,0 +1,26 @@
+<div class="pagebox page_list">
+    <div class="nav noflex">
+        <ul>
+            <li class="">
+                <select ng-change="vm.change('area')" ng-model="vm.area" ng-options="d.id as d.value for d in vm.areas"></select>
+            </li>
+            <li class="">
+                <select ng-change="vm.change('fid')" ng-model="vm.fid" ng-options="d.id as d.value for d in vm.fids"></select>
+            </li>
+        </ul>
+    </div>
+    <div class="flex">
+        <ul class="list">
+            <li ng-click="vm.goto(d.id)" ng-repeat="d in vm.list">
+                <div class="ava">
+                    <img ng-src="{{d.thumb_url}}" alt="">
+                </div>
+                <div class="info">
+                    <h3>{{d.name}}</h3>
+                    <div>服务价格：{{d.price}}</div>
+                    <p class="shengluehao">{{d.des}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
