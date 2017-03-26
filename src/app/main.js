@@ -19,7 +19,7 @@ app.constant('apiurl','//114.215.146.233:83/');
 app.constant('footer',[
     {name:"home",value:"首页"},
     {name:"categary",value:"分类"},
-    {name:"cart",value:"购物车"},
+    {name:"fee",value:"优惠券"},
     {name:"my",value:"我的"}
 ]);
 
@@ -32,9 +32,20 @@ app.config(($routeProvider,$httpProvider)=>{
 });
 
 app.run(($rootScope,footer)=>{
-    angular.element('html').css({
-        fontSize:$(window).width()/16
-    });
+    var ua=window.navigator.userAgent.toLowerCase();
+    if(ua.indexOf('android')>=0){
+        $rootScope.brower="android";
+    }else if(ua.indexOf('iphone')>=0){
+        $rootScope.brower="iphone";
+    }else{
+        $rootScope.brower="pc";
+    }
+
+    if($rootScope.brower!="pc") {
+        angular.element('html').css({
+            fontSize: $(window).width() / 16
+        });
+    }
     $rootScope.footer=footer;
     $rootScope.footerGoto=(name)=>{
         location.hash=("#/"+name);

@@ -1,7 +1,7 @@
 <div class="page_detail pagebox">
-    <header>
+    <header class="noflex">
         <span>{{vm.data.name}}</span>
-        <div class="back"><</div>
+        <h3 class="back font" onclick="history.go(-1)">&#xe70d;</h3>
     </header>
     <div class="flex">
         <div class="info">
@@ -18,9 +18,10 @@
         <div class="content">
             <h3>个人简介</h3>
             <div>{{vm.data.des}}</div>
+            <div ng-bind-html="vm.data.content|html"></div>
         </div>
     </div>
-    <footer>
+    <footer class="noflex">
         <p>联系我:<a href="tel:{{vm.data.phone}}">{{vm.data.phone|limitTo:7}}***</a></p>
     </footer>
 </div>
