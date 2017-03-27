@@ -62,11 +62,12 @@ gulp.task("inject",function () {
         'lib/angular/angular.min.js',
         'lib/angular/angular-route.min.js',
         'lib/angular/ocLazyLoad.min.js',
+        'lib/angular/angular-animate.js',
         'app/main.js',
         'app/!(main.js)',
         'app/**/*.js'
     ],{read:false,cwd:'./build'});
-    var ig="../e:/web/szc/build/";
+    var ig="../E:/web/szc/build/";
     target
         .pipe(inject(css,{addRootSlash:false,ignorePath:ig}))
         .pipe(inject(js,{addRootSlash:false,ignorePath:ig}))
