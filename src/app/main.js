@@ -4,7 +4,7 @@
 function getTpl(path) {
     return './app/'+path+'.html';
 }
-var app=angular.module("yiyao",['ngRoute',"oc.lazyLoad"]);
+var app=angular.module("yiyao",['ngRoute',"oc.lazyLoad",'ngAnimate']);
 app.constant('config',{
     "spid":'1001',
     "channel":'23',

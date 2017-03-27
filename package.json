@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "angular-animate": "^1.5.8",
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-6to5": "^3.0.0",
