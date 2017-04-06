@@ -173,7 +173,7 @@ footer{
 .pagebox{
   @include box();
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   background-color: map_get($colors,bg);
   left: 0;
   right: 0;

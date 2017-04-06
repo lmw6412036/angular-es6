@@ -73,7 +73,7 @@ class indexCtrl{
                         autoplay: 5000,//可选选项，自动滑动
                         pagination : '.swiper-pagination',
                     });
-                },500);
+                },1000);
             }
         });
     }

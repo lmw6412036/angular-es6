@@ -4,6 +4,15 @@
 @import "list/index";
 @import "detail/detail";
 
+.animateView{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  //transition: all 5s ease;
+}
+
 select{
   border: 0px none;
   -webkit-appearance: none;

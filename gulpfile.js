@@ -67,7 +67,7 @@ gulp.task("inject",function () {
         'app/!(main.js)',
         'app/**/*.js'
     ],{read:false,cwd:'./build'});
-    var ig="../E:/web/szc/build/";
+    var ig="../e:/web/szc/build/";
     target
         .pipe(inject(css,{addRootSlash:false,ignorePath:ig}))
         .pipe(inject(js,{addRootSlash:false,ignorePath:ig}))
